@@ -1,8 +1,6 @@
 package co.emitter.gdax.client;
 
-import co.emitter.gdax.models.OrderBook;
-import co.emitter.gdax.models.Product;
-import co.emitter.gdax.models.Ticker;
+import co.emitter.gdax.models.*;
 
 import java.util.Collection;
 
@@ -17,4 +15,11 @@ public interface GDAXClient {
 
     Ticker getTickerForProduct(Product product);
     Ticker getTickerForProductId(String id);
+
+    Collection<Trade> getTradesForProductId(String id);
+    Collection<Trade> getTradesForProduct(Product product);
+
+    Collection<HistoricRate> getHistoricRatesForProduct(Product product);
+
+    Collection<HistoricRate> getHistoricRatesForProductId(String id);
 }

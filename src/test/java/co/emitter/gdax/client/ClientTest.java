@@ -1,5 +1,6 @@
 package co.emitter.gdax.client;
 
+import co.emitter.gdax.models.HistoricRate;
 import co.emitter.gdax.models.OrderBook;
 import co.emitter.gdax.models.Product;
 import co.emitter.gdax.models.Ticker;
@@ -34,5 +35,11 @@ private String url = "https://api.gdax.com";
     public void testGetTicker() {
         Ticker ticker = new ClientFactory().withBaseURL(url).build().getTickerForProductId("BTC-USD");
         assertNotNull(ticker);
+    }
+
+    @Test
+    public void testGetHistoricRates() {
+        Collection<HistoricRate> rates = new ClientFactory().withBaseURL(url).build().getHistoricRatesForProductId("BTC-USD");
+        assertNotNull(rates);
     }
 }
